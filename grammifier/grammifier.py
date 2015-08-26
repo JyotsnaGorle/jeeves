@@ -25,13 +25,13 @@ class Grammifier:
 
                 if str(next[1]) == 'VBG':
                     return str(porter_stemmer.stem_word(str(next[0])))
-                elif str(next[1]) == 'VBN':
+                elif str(next[1]) in ['VBN','JJ','RB']:
                     return 'feel'
                 else:
                     return str(porter_stemmer.stem_word(str(self.pos_tags[index][0])))
 
     def get_action_type(self):
-        actions = ['NN', 'JJ', 'VBN']
+        actions = ['NN', 'JJ', 'VBN','RB']
 
         for tag in self.pos_tags:
             if str(tag[1]) in actions:
