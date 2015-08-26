@@ -3,9 +3,8 @@ from grammifier.grammifier import Grammifier
 from strategist.strategist import Strategist
 from core.strategies import strategies
 
-sentences = ["I am feeling hungry", "He is feeling bored", "I need music"]
-
-for sentence in sentences:
+while True:
+    sentence = raw_input("Type something: ")
     grammifier = Grammifier(sentence)
 
     mental_state = grammifier.get_stemmed_mental_state()

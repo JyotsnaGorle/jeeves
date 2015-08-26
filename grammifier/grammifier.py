@@ -28,7 +28,7 @@ class Grammifier:
                 continue
 
             if str(tag[1]) in matches and first_verb_found:
-                return porter_stemmer.stem_word(str(tag[0]))
+                return str(porter_stemmer.stem_word(str(tag[0])))
 
         if first_verb_found:
             return porter_stemmer.stem_word(verb)
