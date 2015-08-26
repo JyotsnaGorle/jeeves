@@ -1,4 +1,5 @@
 from .base_strategy import BaseStrategy
 
 class ControlFan(BaseStrategy):
-    pass
+    def __init__(self):
+        self.type = "h/w"

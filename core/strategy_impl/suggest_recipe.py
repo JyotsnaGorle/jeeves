@@ -1,4 +1,5 @@
 from .base_strategy import BaseStrategy
 
 class SuggestRecipe(BaseStrategy):
-    pass
+    def __init__(self):
+        self.type = "s/w"

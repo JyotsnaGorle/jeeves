@@ -1,6 +1,6 @@
 class BaseStrategy:
     def describe(self):
-        pass
+        return "This action is not yet implemented"
 
     def perform(self):
         pass

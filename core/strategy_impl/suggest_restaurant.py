@@ -1,4 +1,5 @@
 from .base_strategy import BaseStrategy
 
 class SuggestRestaurant(BaseStrategy):
-    pass
+    def __init__(self):
+        self.type = "s/w"
