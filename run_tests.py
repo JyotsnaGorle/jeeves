@@ -17,8 +17,16 @@ class GrammifierTestCase(unittest.TestCase):
             self.assertEquals(self.grammifier.get_referrer(), "test")
 
     def test_should_return_stem_of_verb_of_mental_state(self):
-        self.grammifier = Grammifier("I need shitty")
+        self.grammifier = Grammifier("I need coffee")
         self.assertEquals(self.grammifier.get_stemmed_mental_state(), "need")
+
+    def test_should_return_stem_of_verb_of_mental_state(self):
+        self.grammifier = Grammifier("I am feeling lonely")
+        self.assertEquals(self.grammifier.get_stemmed_mental_state(), "feel")
+
+    def test_should_return_stem_of_verb_of_mental_state(self):
+        self.grammifier = Grammifier("I am bored")
+        self.assertEquals(self.grammifier.get_stemmed_mental_state(), "bore")
 
     def test_should_return_type_of_action(self):
         self.grammifier = Grammifier("I am feeling like crap")

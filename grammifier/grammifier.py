@@ -19,13 +19,22 @@ class Grammifier:
     def get_stemmed_mental_state(self):
         matches = ['VBN', 'VBP', 'VBG']
         porter_stemmer = nltk.stem.porter.PorterStemmer()
+        first_verb_found = False
 
         for tag in self.pos_tags:
-            if str(tag[1]) in matches:
+            if str(tag[1]) in ['VBZ', 'VBP'] and not first_verb_found:
+                first_verb_found = True
+                verb = str(tag[0])
+                continue
+
+            if str(tag[1]) in matches and first_verb_found:
                 return porter_stemmer.stem_word(str(tag[0]))
 
+        if first_verb_found:
+            return porter_stemmer.stem_word(verb)
+
     def get_action_type(self):
-        actions = ['NN', 'JJ']
+        actions = ['NN', 'JJ', 'VBN']
 
         for tag in self.pos_tags:
             if str(tag[1]) in actions:
