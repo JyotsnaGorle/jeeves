@@ -1,13 +1,13 @@
-from strategies import play_music.PlayMusic
-from strategies import start_tv.StartTV
-from strategies import order_pizza.OrderPizza
-from strategies import order_food.OrderFood
-from strategies import open_facebook.OpenFacebook
-from strategies import control_ac.ControlAC
-from strategies import control_fan.ControlFan
-from strategies import suggest_restaurant.SuggestRestaurant
-from strategies import make_coffee.MakeCoffee
-from strategies import suggest_recipe.SuggestRecipe
+from strategy_impl.play_music         import PlayMusic
+from strategy_impl.start_tv           import StartTV
+from strategy_impl.order_pizza        import OrderPizza
+from strategy_impl.order_food         import OrderFood
+from strategy_impl.open_facebook      import OpenFacebook
+from strategy_impl.control_ac         import ControlAC
+from strategy_impl.control_fan        import ControlFan
+from strategy_impl.suggest_restaurant import SuggestRestaurant
+from strategy_impl.make_coffee        import MakeCoffee
+from strategy_impl.suggest_recipe     import SuggestRecipe
 
 strategies = {
     "feel": {
@@ -24,7 +24,3 @@ strategies = {
         "coffee": [MakeCoffee()]
     }
 }
-
-class Strategies:
-    def get_strategies(self):
-        return strategies
