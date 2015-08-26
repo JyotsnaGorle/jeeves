@@ -8,7 +8,7 @@ sentences = ["I am feeling hungry", "He is feeling bored", "I need music"]
 for sentence in sentences:
     grammifier = Grammifier(sentence)
 
-    mental_state = grammifier.getStemmedMentalState()
+    mental_state = grammifier.get_stemmed_mental_state()
     action_type = grammifier.get_action_type()
 
     strategist = Strategist(Strategies().get_strategies())

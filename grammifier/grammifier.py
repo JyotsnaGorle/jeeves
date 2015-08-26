@@ -5,7 +5,7 @@ class Grammifier:
     def __init__(self, sentence):
         self.pos_tags = nltk.pos_tag(nltk.word_tokenize(sentence))
 
-    def getReferrer(self):
+    def get_referrer(self):
         index = 0
 
         for tag in self.pos_tags:
@@ -16,7 +16,7 @@ class Grammifier:
 
             index += 1
 
-    def getStemmedMentalState(self):
+    def get_stemmed_mental_state(self):
         matches = ['VBN', 'VBP', 'VBG']
 
         for tag in self.pos_tags:

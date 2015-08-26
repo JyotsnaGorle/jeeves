@@ -8,17 +8,17 @@ class GrammifierTestCase(unittest.TestCase):
 
     def test_should_get_self_from_sentence_when_1st_person_ref(self):
         self.grammifier = Grammifier("I am feeling hungry")
-        self.assertEquals(self.grammifier.getReferrer(), "self")
+        self.assertEquals(self.grammifier.get_referrer(), "self")
 
     def test_should_get_test_from_sentence_when_3rd_person_ref(self):
         self.grammifier = Grammifier("He is feeling hungry")
 
         with mock.patch('__builtin__.raw_input', return_value = 'test'):
-            self.assertEquals(self.grammifier.getReferrer(), "test")
+            self.assertEquals(self.grammifier.get_referrer(), "test")
 
     def test_should_return_stem_of_verb_of_mental_state(self):
         self.grammifier = Grammifier("I need shitty")
-        self.assertEquals(self.grammifier.getStemmedMentalState(), "need")
+        self.assertEquals(self.grammifier.get_stemmed_mental_state(), "need")
 
     def test_should_return_type_of_action(self):
         self.grammifier = Grammifier("I am feeling like crap")
