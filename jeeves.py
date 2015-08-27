@@ -12,4 +12,4 @@ while True:
     action_type = grammifier.get_action_type()
 
     strategist = Strategist(strategies)
-    print(strategist.get_strategy_for(mental_state, action_type))
+    strategist.get_strategy_for(mental_state, action_type)

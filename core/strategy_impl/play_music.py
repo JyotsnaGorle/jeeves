@@ -5,7 +5,7 @@ class PlayMusic(BaseStrategy):
         self.type = "s/w"
 
     def describe(self):
-        pass
+        return "I'm supposed to Play Music"
 
     def perform(self):
-        pass
+        return "Playing music..."

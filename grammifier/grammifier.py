@@ -1,4 +1,5 @@
 from __future__ import print_function
+from subprocess import call
 import nltk, numpy
 
 stemmer = nltk.stem.porter.PorterStemmer()
@@ -11,18 +12,20 @@ class Grammifier:
     def stem(self, word):
         return str(stemmer.stem_word(word))
 
+    def speak(self, what):
+        call(["say", what])
+
     def get_referrer(self):
         for tag in self.pos_tags:
             if str(tag[1]) == 'VBZ':
-                return raw_input("Who is %s?: " % self.pos_tags[self.parse_index - 1][0])
+                self.speak("Who is %s" % self.pos_tags[self.parse_index - 1][0])
+                return raw_input("reply: ")
             elif str(tag[1]) == 'VBP':
                 return "self"
 
             self.parse_index += 1
 
     def get_stemmed_mental_state(self):
-        matches = ['VBN', 'VBP', 'VBG']
-
         for index in range(self.parse_index, len(self.pos_tags)):
             if str(self.pos_tags[index][1]) in ['VBP', 'VBZ']:
                 next = self.pos_tags[index + 1]
@@ -30,9 +33,7 @@ class Grammifier:
 
                 if str(next[1]) == 'VBG':
                     state = self.stem(str(next[0]))
-                elif str(next[1]) in ['JJ','RB']:
-                    state = self.stem(str(next[0]))
-                elif str(next[1]) == 'VBN':
+                elif str(next[1]) in ['VBN','JJ','RB']:
                     state = 'feel'
                 else:
                     state = self.stem(str(self.pos_tags[index][0]))
