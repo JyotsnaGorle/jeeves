@@ -1,4 +1,5 @@
 from .base_strategy import BaseStrategy
+import webbrowser
 
 class OpenFacebook(BaseStrategy):
     def __init__(self):
@@ -8,4 +9,5 @@ class OpenFacebook(BaseStrategy):
         pass
 
     def perform(self):
-        pass
+        url = "http://www.facebook.com"
+        webbrowser.open(url,new=2)
