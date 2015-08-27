@@ -9,3 +9,6 @@ class MakeCoffee(BaseStrategy):
 
     def perform(self):
         pass
+
+    def react(self):
+        pass

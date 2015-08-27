@@ -10,3 +10,7 @@ class BaseStrategy:
     @abc.abstractmethod
     def perform(self):
         """The derived strategy class should implement this carry out the strategy"""
+
+    @abc.abstractmethod
+    def react(self):
+        """The derived strategy class should implement this to react accordingly"""

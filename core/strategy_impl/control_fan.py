@@ -9,3 +9,6 @@ class ControlFan(BaseStrategy):
 
     def perform(self):
         pass
+
+    def react(self):
+        pass

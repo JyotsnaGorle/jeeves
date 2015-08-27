@@ -9,3 +9,6 @@ class PlayMusic(BaseStrategy):
 
     def perform(self):
         return "Playing music..."
+
+    def react(self):
+        pass
