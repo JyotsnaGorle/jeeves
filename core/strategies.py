@@ -19,7 +19,6 @@ strategies = {
         "cold": [ControlAC()]
     },
     "need": {
-        "music": [PlayMusic()],
         "food": [SuggestRestaurant(), SuggestRecipe()],
         "coffee": [MakeCoffee()]
     }
