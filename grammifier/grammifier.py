@@ -30,7 +30,7 @@ class Grammifier:
 
                 if str(next[1]) == 'VBG':
                     state = self.stem(str(next[0]))
-                elif str(next[1]) in ['VBN','JJ','RB']:
+                elif str(next[1]) in ['JJ','RB']:
                     state = self.stem(str(next[0]))
                 elif str(next[1]) == 'VBN':
                     state = 'feel'

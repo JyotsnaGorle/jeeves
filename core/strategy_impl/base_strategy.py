@@ -1,6 +1,12 @@
-class BaseStrategy:
-    def describe(self):
-        return "This action is not yet implemented"
+import abc
 
+class BaseStrategy:
+    __metaclass__ = abc.ABCMeta
+
+    @abc.abstractmethod
+    def describe(self):
+        """The derived strategy class should implement this to display the description"""
+
+    @abc.abstractmethod
     def perform(self):
-        pass
+        """The derived strategy class should implement this carry out the strategy"""
