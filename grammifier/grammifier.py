@@ -1,10 +1,15 @@
 from __future__ import print_function
 import nltk, numpy
 
+stemmer = nltk.stem.porter.PorterStemmer()
+
 class Grammifier:
     def __init__(self, sentence):
         self.pos_tags = nltk.pos_tag(nltk.word_tokenize(sentence))
         self.parse_index = 0
+
+    def stem(self, word):
+        return str(stemmer.stem_word(word))
 
     def get_referrer(self):
         for tag in self.pos_tags:
@@ -17,18 +22,22 @@ class Grammifier:
 
     def get_stemmed_mental_state(self):
         matches = ['VBN', 'VBP', 'VBG']
-        porter_stemmer = nltk.stem.porter.PorterStemmer()
 
         for index in range(self.parse_index, len(self.pos_tags)):
             if str(self.pos_tags[index][1]) in ['VBP', 'VBZ']:
                 next = self.pos_tags[index + 1]
+                state = None
 
                 if str(next[1]) == 'VBG':
-                    return str(porter_stemmer.stem_word(str(next[0])))
+                    state = self.stem(str(next[0]))
                 elif str(next[1]) in ['VBN','JJ','RB']:
-                    return 'feel'
+                    state = self.stem(str(next[0]))
+                elif str(next[1]) == 'VBN':
+                    state = 'feel'
                 else:
-                    return str(porter_stemmer.stem_word(str(self.pos_tags[index][0])))
+                    state = self.stem(str(self.pos_tags[index][0]))
+
+                return state
 
     def get_action_type(self):
         actions = ['NN', 'JJ', 'VBN','RB']
