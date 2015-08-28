@@ -1,5 +1,5 @@
 from .base_strategy import BaseStrategy
-from subprocess import call
+from utils.say import say
 import webbrowser
 
 class OrderFood(BaseStrategy):
@@ -11,8 +11,8 @@ class OrderFood(BaseStrategy):
 
     def perform(self):
         url = "http://www.zomato.com"
-        webbrowser.open(url,new=2)
+        webbrowser.open(url, new=2)
 
     def react(self):
-        call(["say", "unfortunately I cannot feed you, but I can help you find some food"])
+        say("unfortunately I cannot feed you, but I can help you find some food")
 
