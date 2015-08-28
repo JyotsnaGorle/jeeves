@@ -1,9 +1,5 @@
-#!/usr/bin/env python
-
 from __future__ import print_function          # maintain compatibility with Py3/Py3k
 from twisted.internet import reactor, protocol
-
-import sys, os
 
 class Julius_Connection(protocol.Protocol):
     """
@@ -46,10 +42,7 @@ class Julius_Connect_Factory(protocol.ClientFactory):
         reactor.stop()
         print("Exited!")
 
-if len(sys.argv) != 3:
-    sys.stderr.write("Invalid parameters, Usage: %s <server_ip> <server_port>%s" % (sys.argv[0], os.linesep))
-    exit(1)
-
-factory = Julius_Connect_Factory()
-reactor.connectTCP(sys.argv[1], int(sys.argv[2]), factory)
-reactor.run()
+def connect(host, port=10500):
+    factory = Julius_Connect_Factory()
+    reactor.connectTCP(host, port, factory)
+    reactor.run()
