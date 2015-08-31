@@ -1,7 +1,7 @@
 from __future__ import print_function          # maintain compatibility with Py3/Py3k
 from twisted.internet import reactor, protocol
 
-class Julius_Connection(protocol.Protocol):
+class JuliusConnection(protocol.Protocol):
     """
         Base Twisted reactor class for TCP connection to Julius-Core
          - Implements callbacks for connection made/loss and data received
@@ -19,7 +19,7 @@ class Julius_Connection(protocol.Protocol):
     def connectionLost(self, reason):
         print("Connection lost to Julius-Core!")
 
-class Julius_Connect_Factory(protocol.ClientFactory):
+class JuliusConnectFactory(protocol.ClientFactory):
     """
         Twisted Reactor factory for the reactor class
          - Implements the TCP connection to connect to Julius-Core
@@ -29,7 +29,7 @@ class Julius_Connect_Factory(protocol.ClientFactory):
           - Possibly have a connection timeout?
           - Try to reconnect on failure or termination?
     """
-    protocol = Julius_Connection
+    protocol = JuliusConnection
 
     def clientConnectionFailed(self, connector, reason):
         self.halt("failed")
@@ -43,6 +43,6 @@ class Julius_Connect_Factory(protocol.ClientFactory):
         print("Exited!")
 
 def connect(host, port=10500):
-    factory = Julius_Connect_Factory()
+    factory = JuliusConnectFactory()
     reactor.connectTCP(host, port, factory)
     reactor.run()
