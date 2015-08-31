@@ -13,7 +13,6 @@ times = {
     "night": xrange(20, 24)
 }
 
-
 class Segregator:
     def __init__(self, sentence):
         self.words = nltk.word_tokenize(sentence)
