@@ -1,3 +1,7 @@
 data_sources = {
-    "news_url": "http://dynamic.feedsportal.com/pf/555218/http://toi.timesofindia.indiatimes.com/rssfeedstopstories.cms"
+    "news_urls": {
+        "Times of India": "http://dynamic.feedsportal.com/pf/555218/http://toi.timesofindia.indiatimes.com/rssfeedstopstories.cms",
+        "NDTV": "http://feeds.feedburner.com/NdtvNews-TopStories",
+        "Reuters": "http://feeds.reuters.com/reuters/INtopNews"
+    }
 }
