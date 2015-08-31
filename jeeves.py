@@ -13,7 +13,7 @@ while True:
     sentence = raw_input("Type something: ")
     grammifier = Grammifier(sentence)
 
-    print("Referrer is ", grammifier.get_referrer())
+    print("Referrer is %s" % grammifier.get_referrer())
     mental_state = grammifier.get_stemmed_mental_state()
     action_type = grammifier.get_action_type()
 

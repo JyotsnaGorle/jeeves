@@ -1,4 +1,5 @@
 from strategist.strategist import Strategist
+
 import unittest
 
 class BaseStrategy:

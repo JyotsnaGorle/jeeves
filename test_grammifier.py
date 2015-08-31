@@ -1,5 +1,7 @@
 from grammifier.grammifier import Grammifier
-import unittest, mock
+
+import unittest
+import mock
 
 class GrammifierTestCase(unittest.TestCase):
     def tearDown(self):
