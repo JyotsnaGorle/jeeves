@@ -18,8 +18,8 @@ class MakeCoffee(BaseStrategy):
         time_of_day = int(strftime("%H"))
         if time_of_day < 12:
             say("sure, while I make coffee let me update you with today's news and weather")
+            newsReader = ReadNewsAndWeather()
+            newsReader.read_news()
+
         else:
             say("sure, give me some time")
-            newsReader = ReadNewsAndWeather()
-            print("i am here")
-            newsReader.read_news()
