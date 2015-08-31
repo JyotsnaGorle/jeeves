@@ -1,5 +1,4 @@
-from __future__ import print_function
-from subprocess import call
+from utils.say import say
 
 import nltk
 
@@ -7,14 +6,14 @@ stemmer = nltk.stem.porter.PorterStemmer()
 
 class Grammifier:
     def __init__(self, sentence):
-        self.pos_tags = nltk.pos_tag(nltk.word_tokenize(sentence))
+        self.pos_tags = nltk.pos_tag(sentence)
         self.parse_index = 0
 
     def stem(self, word):
         return str(stemmer.stem_word(word))
 
     def speak(self, what):
-        call(["say", what])
+        say(what)
 
     def get_referrer(self):
         for tag in self.pos_tags:
