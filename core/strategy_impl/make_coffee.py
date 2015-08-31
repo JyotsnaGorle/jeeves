@@ -14,8 +14,8 @@ class MakeCoffee(BaseStrategy):
         pass
 
     def react(self):
-        time_of_day = datetime.now.hour
-        
+        time_of_day = datetime.now().hour
+
         if time_of_day < 12:
             say("sure, while I make coffee let me update you with today's news and weather")
             news_reader = ReadNewsAndWeather()
