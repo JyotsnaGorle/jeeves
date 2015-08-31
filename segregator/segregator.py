@@ -1,7 +1,7 @@
 from core.strategies import strategies
 from grammifier.grammifier import Grammifier
 from strategist.strategist import Strategist
-from time import strftime
+from datetime import datetime
 from utils.say import say
 
 import nltk
@@ -28,7 +28,7 @@ class Segregator:
         return False
 
     def react(self, greeting):
-        time_of_day = int(strftime("%H"))
+        time_of_day = datetime.now().hour
 
         if time_of_day not in times[greeting]:
             say("Actually, its...")

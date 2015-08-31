@@ -1,13 +1,26 @@
 from __future__ import print_function
+from .base_strategy import BaseStrategy
+from conf.data_sources import data_sources
+from utils.say import say
+
 import feedparser
 
-class ReadNewsAndWeather:
+class ReadNewsAndWeather(BaseStrategy):
     def __init__(self):
         self.type = "s/w"
 
+    def describe(self):
+        pass
+
+    def perform(self):
+        self.read_news()
+        self.tell_weather()
+
+    def react(self):
+        say("Fetching today's news and weather for you...")
+
     def read_news(self):
-        rss_read = feedparser.parse(
-            "http://dynamic.feedsportal.com/pf/555218/http://toi.timesofindia.indiatimes.com/rssfeedstopstories.cms")
+        rss_read = feedparser.parse(data_sources['news_url'])
         entries = rss_read.entries
 
         for entry in entries:

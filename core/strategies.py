@@ -8,6 +8,7 @@ from .strategy_impl.control_fan import ControlFan
 from .strategy_impl.suggest_restaurant import SuggestRestaurant
 from .strategy_impl.make_coffee import MakeCoffee
 from .strategy_impl.suggest_recipe import SuggestRecipe
+from .strategy_impl.read_news_and_weather import ReadNewsAndWeather
 
 strategies = {
     "feel": {
@@ -20,6 +21,7 @@ strategies = {
     },
     "need": {
         "food": [SuggestRestaurant(), SuggestRecipe()],
-        "coffee": [MakeCoffee()]
+        "coffee": [MakeCoffee()],
+        "news": [ReadNewsAndWeather()]
     }
 }
