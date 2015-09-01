@@ -1,5 +1,6 @@
 from __future__ import print_function
 from segregator.segregator import Segregator
+from julius_connector.julius_connector import connect_to_julius
 
 import argparse
 
@@ -10,11 +11,9 @@ parser.add_argument("--port", help="specify julius' port, default is 10500", typ
 args = parser.parse_args()
 
 if args.input and args.input == "mic":
-    host = args.host or "localhost"
-    port = args.port or 10500
-    print("Jeeves is preparing to listen at %s:%d..." % (host, port))
-
-while True:
-    sentence = raw_input("Type something: ")
-    segregator = Segregator(sentence)
-    segregator.segregate_and_react()
+    connect_to_julius(args.host or "localhost", args.port or 10500)
+else:
+    while True:
+        sentence = raw_input("Type something: ")
+        segregator = Segregator(sentence)
+        segregator.segregate_and_react()
