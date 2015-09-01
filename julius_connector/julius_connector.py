@@ -24,10 +24,6 @@ class JuliusConnection(protocol.Protocol):
     """
         Base Twisted reactor class for TCP connection to Julius-Core
          - Implements callbacks for connection made/loss and data received
-
-        TODO:
-         - Append chunked data to form complete response from Julius-Core
-         - Parse the response XML to for a sentence
     """
     def __init__(self):
         self.full_xml = []
@@ -65,10 +61,6 @@ class JuliusConnectFactory(protocol.ClientFactory):
         Twisted Reactor factory for the reactor class
          - Implements the TCP connection to connect to Julius-Core
          - Stops when connection is reset by peer
-
-         TODO:
-          - Possibly have a connection timeout?
-          - Try to reconnect on failure or termination?
     """
     protocol = JuliusConnection
 
