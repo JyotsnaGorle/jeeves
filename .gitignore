@@ -2,3 +2,6 @@
 *.pyc
 .idea/
 *.iml
+*.dict
+*.dfa
+*.term
