@@ -41,6 +41,7 @@ class JuliusConnection(protocol.Protocol):
         parser.feed(what)
 
         if len(sentence) > 0:
+            pass
             # segregator = Segregator(' '.join(sentence))
             # segregator.segregate_and_react()
 
