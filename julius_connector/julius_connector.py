@@ -31,15 +31,15 @@ class JuliusConnection(protocol.Protocol):
     def sanitize(self, what):
         return what.replace(".\n", "").replace("\n", "").replace(">.", ">")
 
-    def send_to_jeeves(self, what):
+    def interpret(self, what):
         global sentence
 
         parser.feed(what)
 
         if len(sentence) > 0:
-            pass
-            # segregator = Segregator(' '.join(sentence))
-            # segregator.segregate_and_react()
+            segregator = Segregator(' '.join(sentence))
+            segregator.segregate_and_react()
+            sentence = []
 
     def connectionMade(self):
         print("Connected to Julius-Core!")
@@ -48,7 +48,7 @@ class JuliusConnection(protocol.Protocol):
         for response in data.strip().split('\n.\n'):
             if '<INPUT STATUS="LISTEN"' in response:
                 if len(self.full_xml) > 0:
-                    self.send_to_jeeves(''.join(self.full_xml))
+                    self.interpret(''.join(self.full_xml))
                     self.full_xml = []
             else:
                 self.full_xml.append(self.sanitize(response))
