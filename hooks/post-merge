@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+cd julius_conf
+echo "$changed_files" | grep --quiet "julius_conf/jeeves.grammar" && eval "mkdfa.pl jeeves"
+echo "$changed_files" | grep --quiet "julius_conf/jeeves.voca" && eval "mkdfa.pl jeeves"
