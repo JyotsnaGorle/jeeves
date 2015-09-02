@@ -24,6 +24,7 @@ strategies = {
         "food": [SuggestRestaurant(), SuggestRecipe()],
         "coffee": [MakeCoffee()],
         "news": [ReadNewsAndWeather()],
-        "emails": [ReadEmails()]
+        "emails": [ReadEmails()],
+        "mails": [ReadEmails()]
     }
 }
