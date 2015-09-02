@@ -23,7 +23,7 @@ class EmailReader:
         if not os.path.exists(credential_dir):
             os.makedirs(credential_dir)
         credential_path = os.path.join(credential_dir,
-                                       'gmail-quickstart.json')
+                                       'login_credentials.json')
 
         store = oauth2client.file.Storage(credential_path)
         credentials = store.get()
