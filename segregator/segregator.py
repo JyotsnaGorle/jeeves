@@ -19,10 +19,15 @@ class Segregator:
 
     def check_if_greeting(self):
         greetings = ['morning', 'afternoon', 'evening', 'night']
+        casual_greetings =['hello', 'hi','hey']
 
         for greeting in greetings:
             if greeting in self.words:
                 self.react(greeting)
+                return True
+        for casual_greeting in casual_greetings:
+            if casual_greeting in self.words:
+                self.react_casually(casual_greeting)
                 return True
 
         return False
@@ -48,3 +53,6 @@ class Segregator:
 
             strategist = Strategist(strategies)
             strategist.get_strategy_for(mental_state, action_type)
+
+    def react_casually(self, casual_greeting):
+        say(casual_greeting)
