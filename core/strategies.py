@@ -1,4 +1,5 @@
 from core.strategy_impl.read_emails import ReadEmails
+from core.strategy_impl.speech_response import SpeechResponse
 from .strategy_impl.play_music import PlayMusic
 from .strategy_impl.order_food import OrderFood
 from .strategy_impl.open_facebook import OpenFacebook
@@ -14,7 +15,10 @@ strategies = {
         "lonely": [OpenFacebook()],
         "hot": [ControlAC()],
         "warm": [ControlAC(), ControlFan()],
-        "cold": [ControlAC()]
+        "cold": [ControlAC()],
+        "tired": [SpeechResponse("tired")],
+        "sleepy": [SpeechResponse("sleepy")],
+        "love": [SpeechResponse("love")],
     },
     "need": {
         "food": [OrderFood()],
