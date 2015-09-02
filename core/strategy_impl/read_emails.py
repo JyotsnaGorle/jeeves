@@ -51,9 +51,14 @@ class EmailReader:
         for each in messages[:limit]:
             count += 1
             message_content = service.users().messages().get(userId=user_id, id=each['id'],
-                                                             format='raw').execute()
+                                                             format='metadata',
+                                                             metadataHeaders=['From', 'Subject']).execute()
             say('message %d' % count)
-            say(message_content['snippet'])
+            from_and_subject = message_content['payload']['headers']
+
+            for each in from_and_subject:
+                say(each['name'])
+                say(each['value'])
 
 
 class ReadEmails(BaseStrategy):
