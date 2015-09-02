@@ -41,7 +41,7 @@ class Grammifier:
                 return state
 
     def get_action_type(self):
-        actions = ['NN', 'JJ', 'VBN', 'RB']
+        actions = ['NN', 'JJ', 'VBN', 'RB', 'NNS']
 
         for tag in self.pos_tags:
             if str(tag[1]) in actions:

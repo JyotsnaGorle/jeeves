@@ -1,3 +1,4 @@
+from core.strategy_impl.read_emails import ReadEmails
 from .strategy_impl.play_music import PlayMusic
 from .strategy_impl.start_tv import StartTV
 from .strategy_impl.order_pizza import OrderPizza
@@ -22,6 +23,7 @@ strategies = {
     "need": {
         "food": [SuggestRestaurant(), SuggestRecipe()],
         "coffee": [MakeCoffee()],
-        "news": [ReadNewsAndWeather()]
+        "news": [ReadNewsAndWeather()],
+        "emails": [ReadEmails()]
     }
 }
