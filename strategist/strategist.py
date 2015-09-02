@@ -3,6 +3,9 @@ class Strategist:
         self.strategies = strategies
 
     def get_strategy_for(self, stemmed_mental_state, action_type):
-        for strategy in self.strategies[stemmed_mental_state][action_type]:
-            strategy.react()
-            strategy.perform()
+        try:
+            for strategy in self.strategies[stemmed_mental_state][action_type]:
+                strategy.react()
+                strategy.perform()
+        except KeyError:
+            print("I don't know what do yet nahi phata na, Behenchod!")
