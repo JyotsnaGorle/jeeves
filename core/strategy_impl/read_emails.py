@@ -10,7 +10,8 @@ import os
 import argparse
 import oauth2client
 
-flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+flags = argparse.Namespace(auth_host_name='localhost', auth_host_port=[8080, 8090], logging_level='ERROR',
+                           noauth_local_webserver=False)
 SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 CLIENT_SECRET_FILE = os.path.join(data_sources['gmail_api_key_path'], 'client_secret.json')
 
