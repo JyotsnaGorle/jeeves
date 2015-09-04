@@ -1,4 +1,5 @@
 from .base_strategy import BaseStrategy
+from utils.say import say
 
 class PlayMusic(BaseStrategy):
     def __init__(self):
@@ -8,7 +9,7 @@ class PlayMusic(BaseStrategy):
         return "I'm supposed to Play Music"
 
     def perform(self):
-        return "Playing music..."
+        pass
 
     def react(self):
-        pass
+        say("Okay, lets play some music...")
