@@ -4,6 +4,7 @@ from utils.say import say
 import spotipy
 import webbrowser
 
+
 class PlayMusic(BaseStrategy):
     def __init__(self):
         self.type = "s/w"
@@ -45,7 +46,9 @@ class PlayMusic(BaseStrategy):
             choice = raw_input("reply: ")
 
             say("Playing %s from the album %s." % (playlist[choice][1], playlist[choice][2]))
-            webbrowser.open("http://www.google.com/search?q=%s %s video youtube official&btnI" % (playlist[choice][0], playlist[choice][1]))
+            webbrowser.open("http://www.google.com/search?q=%s %s video youtube official&btnI" % (
+                playlist[choice][0], playlist[choice][1]
+            ))
         else:
             say("Sorry, Although I know %s but I can't find any songs. Weird" % (self.artist['name']))
 
