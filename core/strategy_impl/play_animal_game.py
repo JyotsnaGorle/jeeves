@@ -45,13 +45,13 @@ def mem_walker(brains_found):
         current_block = block
 
         while True:
+            print("[Jeeves] %s" % current_block.question)
             say(current_block.question)
-            print("[Jeeves]: %s" % current_block.question)
             reply = raw_input("reply: ").lower()
 
             if reply in ["yes", "y"]:
+                print("[Jeeves] %s" % current_block.guess)
                 say("So, Is it a %s?" % current_block.guess)
-                print("[Jeeves]: %s" % current_block.guess)
                 reply = raw_input("reply: ").lower()
 
                 if reply in ["yes", "y"]:
@@ -108,7 +108,7 @@ class PlayAnimalGame(BaseStrategy):
         self.type = "s/w"
 
     def describe(self):
-        return "Play the animal game."
+        return "Would you play the guess the animal game?"
 
     def perform(self):
         reply = "yes"

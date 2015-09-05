@@ -13,7 +13,7 @@ class PlayMusic(BaseStrategy):
         self.sp.trace = False
 
     def describe(self):
-        return "I'm supposed to Play Music"
+        return "Would you like to listen to some music?"
 
     def find_artist(self, name):
         results = self.sp.search(q='artist:' + name, type='artist')
