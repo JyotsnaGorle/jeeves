@@ -34,12 +34,12 @@ class PlayMusic(BaseStrategy):
 
             playlist = {}
 
-            track = tracks[0]
-            print("[%d] Song: %s Album: %s" % (count + 1, track['name'], track['album']['name']))
-            say("%s from the album %s" % (track['name'], track['album']['name']))
-            count += 1
+            for track in tracks:
+                print("[%d] Song: %s Album: %s" % (count + 1, track['name'], track['album']['name']))
+                say("%s from the album %s" % (track['name'], track['album']['name']))
+                count += 1
 
-            playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'])
+                playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'])
 
             say("Please type the index of the song you would like to hear")
             choice = raw_input("reply: ")
