@@ -2,6 +2,7 @@ from .base_strategy import BaseStrategy
 from utils.say import say
 
 import spotipy
+import webbrowser
 
 class PlayMusic(BaseStrategy):
     def __init__(self):
@@ -33,17 +34,18 @@ class PlayMusic(BaseStrategy):
 
             playlist = {}
 
-            for track in tracks:
-                print("[%d] Song: %s Album: %s" % (count + 1, track['name'], track['album']['name']))
-                say("%s from the album %s" % (track['name'], track['album']['name']))
-                count += 1
+            track = tracks[0]
+            print("[%d] Song: %s Album: %s" % (count + 1, track['name'], track['album']['name']))
+            say("%s from the album %s" % (track['name'], track['album']['name']))
+            count += 1
 
-                playlist[str(count)] = (track['name'], track['album']['name'])
+            playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'])
 
             say("Please type the index of the song you would like to hear")
             choice = raw_input("reply: ")
 
-            say("Playing %s from the album %s" % (playlist[choice]))
+            say("Playing %s from the album %s." % (playlist[choice][1], playlist[choice][2]))
+            webbrowser.open("http://www.google.com/search?q=%s %s video youtube official&btnI" % (playlist[choice][0], playlist[choice][1]))
         else:
             say("Sorry, Although I know %s but I can't find any songs. Weird" % (self.artist['name']))
 
