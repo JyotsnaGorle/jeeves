@@ -11,7 +11,7 @@ class ReadNewsAndWeather(BaseStrategy):
         self.type = "s/w"
 
     def describe(self):
-        pass
+        return "Listen to the news and weather"
 
     def perform(self):
         self.read_news()

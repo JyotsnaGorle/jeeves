@@ -9,14 +9,15 @@ class Strategist:
         try:
             strategies = self.strategies[stemmed_mental_state][action_type]
 
-            if len(strategies) > 0:
+            if len(strategies) > 1:
                 say("Okay, what would you like to do?")
                 count = 0
                 plans = {}
 
                 for strategy in strategies:
                     print("[%d] %s" % (count + 1, strategy.describe()))
-                    say(strategy.describe())
+                    if strategy.describe():
+                        say(strategy.describe())
                     count += 1
 
                     plans[str(count)] = strategy

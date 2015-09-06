@@ -26,8 +26,8 @@ def read_memory():
 
 
 def write_memory(root):
-    with open('brains', 'wb') as output:
-        pickle.dump(root, output, pickle.HIGHEST_PROTOCOL)
+    with open('brains', 'wb') as brains:
+        pickle.dump(root, brains, pickle.HIGHEST_PROTOCOL)
 
 
 def mem_walker(brains_found):
