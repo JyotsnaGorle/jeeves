@@ -1,8 +1,8 @@
+import subprocess
 from .base_strategy import BaseStrategy
 from utils.say import say
 
 import spotipy
-import webbrowser
 
 
 class PlayMusic(BaseStrategy):
@@ -26,9 +26,23 @@ class PlayMusic(BaseStrategy):
 
         return False
 
+    def start_spotify(self):
+        running = int(subprocess.check_output([
+            'osascript',
+            '-e', 'tell application "System Events"',
+            '-e', 'count (every process whose name is "Spotify")',
+            '-e', 'end tell'
+        ]).strip())
+
+        if not running:
+            subprocess.call([
+                'osascript',
+                '-e',
+                'tell application "Spotify" to activate'
+            ])
+
     def get_top_tracks(self):
         tracks = self.sp.artist_top_tracks(self.artist["uri"])['tracks']
-
         if len(tracks) > 0:
             say("Here's what I think are their best works.")
             count = 0
@@ -40,19 +54,23 @@ class PlayMusic(BaseStrategy):
                 say("%s from the album %s" % (track['name'], track['album']['name']))
                 count += 1
 
-                playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'])
+                playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'], track['uri'])
 
             say("Please type the index of the song you would like to hear")
             choice = raw_input("reply: ")
 
             say("Playing %s from the album %s." % (playlist[choice][1], playlist[choice][2]))
-            webbrowser.open("http://www.google.com/search?q=%s %s video youtube official&btnI" % (
-                playlist[choice][0], playlist[choice][1]
-            ))
+
+            subprocess.call([
+                'osascript',
+                '-e',
+                'tell app "Spotify" to play track "%s"' % playlist[choice][3]
+            ])
         else:
             say("Sorry, Although I know %s but I can't find any songs. Weird" % (self.artist['name']))
 
     def perform(self):
+        self.start_spotify()
         say("Please type the artist you want to hear: ")
         name = raw_input("reply: ")
 
