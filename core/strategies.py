@@ -12,20 +12,30 @@ from core.strategy_impl.speech_response import SpeechResponse
 strategies = {
     "feel": {
         "bored": [PlayAnimalGame(), PlayMusic()],
-        "cold": [ControlAC()],
-        "hot": [ControlAC()],
+        "cold": [ControlAC(), ControlFan('off')],
+        "hot": [ControlFan('on')],
         "hungry": [OrderFood()],
         "lonely": [OpenFacebook()],
         "love": [SpeechResponse("love")],
         "sleepy": [SpeechResponse("sleepy")],
         "tired": [SpeechResponse("tired")],
-        "warm": [ControlAC(), ControlFan()]
+        "warm": [ControlAC(), ControlFan('on')]
     },
     "need": {
-        "coffee": [MakeCoffee()],
+        "coffee": [MakeCoffee('on')],
         "emails": [ReadEmails()],
         "food": [OrderFood()],
         "mails": [ReadEmails()],
         "news": [ReadNewsAndWeather()]
+    },
+    "on": {
+        "fan": [ControlFan('on')],
+        # "charger": [ChargeDevice('on')],
+        "coffee": [MakeCoffee('on')]
+    },
+    "off":{
+        "fan": [ControlFan('off')],
+        # "charger": [ChargeDevice('off')],
+        "coffee": [MakeCoffee('off')]
     }
 }

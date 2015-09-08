@@ -9,6 +9,5 @@ class ControlAC(BaseStrategy):
 
     def perform(self):
         pass
-
     def react(self):
         pass
