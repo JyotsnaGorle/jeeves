@@ -1,6 +1,7 @@
 from __future__ import print_function
 from segregator.segregator import Segregator
 from julius_connector.julius_connector import connect_to_julius
+from utils.user_input import user_input
 
 import argparse
 import subprocess
@@ -32,6 +33,6 @@ if args.input and args.input == "mic":
     connect_to_julius(args.host or "localhost", args.port or 10500)
 else:
     while True:
-        sentence = raw_input("Type something: ")
+        sentence = user_input("Type something: ")
         segregator = Segregator(sentence)
         segregator.segregate_and_react()

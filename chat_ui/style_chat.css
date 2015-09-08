@@ -33,7 +33,7 @@
         #chat_screen {
             font-family: 'Noto Sans', sans-serif;
             font-size: 14px;
-            margin-top: 20px;
+            margin-top: 50px;
         }
 
         #chat_screen > div {
@@ -52,13 +52,14 @@
             padding: 10px 10px 10px 10px;
             position: relative;
             border-radius: 5px;
-            margin: 50px 0 0 0;
+            margin: 0;
         }
 
         .user {
             float: left;
             background: #CEE3F6;
             margin-right: 10px;
+
         }
 
         .user:after {
@@ -67,7 +68,6 @@
             width: 0;
             height: 0;
             left: 104px;
-            bottom: 27px;
             border: 10px solid;
             border-color: #CEE3F6 transparent transparent #CEE3F6;
         }
@@ -83,7 +83,6 @@
             position: absolute;
             width: 0;
             height: 0;
-            bottom: 27px;
             border: 10px solid;
             right: 112px;
             border-color: antiquewhite antiquewhite transparent transparent;
@@ -93,6 +92,7 @@
         .jeeves {
             padding: 10px;
             border-radius: 15px;
+            max-width: 60%;
         }
 
         .icon-container img {
@@ -105,4 +105,8 @@
         .jeeves .icon-container img {
             margin-left: 10px;
             margin-right: 0px;
+        }
+
+        p{
+            padding:0 10px 0 10px;
         }

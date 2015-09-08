@@ -1,4 +1,5 @@
 from utils.say import say
+from utils.user_input import user_input
 
 
 class Strategist:
@@ -22,7 +23,7 @@ class Strategist:
 
                     plans[str(count)] = strategy
 
-                index = raw_input("reply: ")
+                index = user_input("reply: ")
                 strategy = plans[index]
             else:
                 strategy = strategies[0]

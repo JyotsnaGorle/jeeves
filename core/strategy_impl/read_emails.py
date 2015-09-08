@@ -4,6 +4,7 @@ from apiclient import discovery
 from oauth2client import client
 from oauth2client import tools
 from conf.data_sources import data_sources
+from utils.user_input import user_input
 
 import httplib2
 import os
@@ -46,7 +47,7 @@ class EmailReader:
             messages.extend(response['messages'])
 
         say('you have %d unread emails; and how many would you like me to read?' % response['resultSizeEstimate'])
-        limit = int(raw_input("reply: "))
+        limit = int(user_input("reply: "))
 
         count = 0
         for message in messages[:limit]:

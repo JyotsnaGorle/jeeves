@@ -1,7 +1,8 @@
-import subprocess
 from .base_strategy import BaseStrategy
 from utils.say import say
+from utils.user_input import user_input
 
+import subprocess
 import spotipy
 
 
@@ -57,7 +58,7 @@ class PlayMusic(BaseStrategy):
                 playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'], track['uri'])
 
             say("Please type the index of the song you would like to hear")
-            choice = raw_input("reply: ")
+            choice = user_input("reply: ")
 
             say("Playing %s from the album %s." % (playlist[choice][1], playlist[choice][2]))
 
@@ -72,7 +73,7 @@ class PlayMusic(BaseStrategy):
     def perform(self):
         self.start_spotify()
         say("Please type the artist you want to hear: ")
-        name = raw_input("reply: ")
+        name = user_input("reply: ")
 
         if not self.find_artist(name):
             say("That's weird. All this knowledge and still I couldn't find anything. I'll try to learn more.")

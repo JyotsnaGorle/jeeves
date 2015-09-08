@@ -1,5 +1,5 @@
 from utils.say import say
-
+from utils.user_input import user_input
 import nltk
 
 stemmer = nltk.stem.porter.PorterStemmer()
@@ -19,7 +19,7 @@ class Grammifier:
         for tag in self.pos_tags:
             if str(tag[1]) == 'VBZ':
                 self.speak("Who is %s" % self.pos_tags[self.parse_index - 1][0])
-                return raw_input("reply: ")
+                return user_input("reply: ")
             elif str(tag[1]) == 'VBP':
                 return "self"
 

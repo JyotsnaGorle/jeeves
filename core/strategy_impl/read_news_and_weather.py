@@ -2,9 +2,11 @@ from __future__ import print_function
 from .base_strategy import BaseStrategy
 from conf.data_sources import data_sources
 from utils.say import say
+from utils.user_input import user_input
 
 import feedparser
 import re
+
 
 class ReadNewsAndWeather(BaseStrategy):
     def __init__(self):
@@ -31,9 +33,9 @@ class ReadNewsAndWeather(BaseStrategy):
             indexed_source.append(sources[source])
 
         say("And, very soon i will be able to hear you. For now please type the choice from 1 to %d" % len(sources))
-        choice = int(raw_input("choice[1-%d]: " % len(sources)))
+        choice = int(user_input("choice[1-%d]: " % len(sources)))
         say("And, how many headlines would you like to hear?")
-        count = int(raw_input("how many: "))
+        count = int(user_input("how many: "))
 
         feed = feedparser.parse(indexed_source[choice - 1])
 

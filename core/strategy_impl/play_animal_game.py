@@ -1,6 +1,7 @@
 from __future__ import print_function
 from .base_strategy import BaseStrategy
 from utils.say import say
+from utils.user_input import user_input
 
 import os
 
@@ -47,12 +48,12 @@ def mem_walker(brains_found):
         while True:
             print("[Jeeves] %s" % current_block.question)
             say(current_block.question)
-            reply = raw_input("reply: ").lower()
+            reply = user_input("reply: ").lower()
 
             if reply in ["yes", "y"]:
                 print("[Jeeves] %s" % current_block.guess)
                 say("So, Is it a %s?" % current_block.guess)
-                reply = raw_input("reply: ").lower()
+                reply = user_input("reply: ").lower()
 
                 if reply in ["yes", "y"]:
                     say("Awesome!! I'm getting good at this!")
@@ -77,10 +78,10 @@ def mem_walker(brains_found):
             say("I want to learn from you now...")
             say("Type a question related to the animal you thought.")
             say("For example: Does it have stripes? Or does it run fast?")
-            temp.question = raw_input("reply: ")
+            temp.question = user_input("reply: ")
 
             say("Okay, tell me the creature you thought of")
-            temp.guess = raw_input("reply: ")
+            temp.guess = user_input("reply: ")
 
             say("Awesome. Assuming what you taught me is correct, I'll definitely remember it!")
 
@@ -94,7 +95,7 @@ def mem_walker(brains_found):
 
 def check():
     say("Think of an animal and when you're ready hit the enter key.")
-    raw_input()
+    user_input()
 
     if not os.path.exists("brains"):
         say("I guess we are playing this game for the first time, so pardon my ignorance.")
@@ -117,7 +118,7 @@ class PlayAnimalGame(BaseStrategy):
             check()
 
             say("Shall we play again?")
-            reply = raw_input("reply: ").lower()
+            reply = user_input("reply: ").lower()
 
         say("It was nice playing with you!")
 
