@@ -17,6 +17,12 @@ function addChat(message) {
         alignment_in = 'left';
         icon = jeeves_icon;
     }
+
     div.innerHTML = "<div class='chat clear'><div class='clear' ><div class='icon-container " + alignment_out + "'><img src='images/" + icon + ".png'></div><div class='" + person + " " + alignment_in + "'><p>" + msg + "</p></div></div></div>";
     chat_screen.appendChild(div);
+    scrollWin(div.offsetTop)
+}
+
+function scrollWin(offset) {
+    window.scrollTo(0, offset + 60);
 }
