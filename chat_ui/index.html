@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>Jeeves Chat Window</title>
+    <link rel="stylesheet" href="style_chat.css" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="images/jeeves.png">
     <script>
-        server_url = "ws://localhost:9000/";
+        server_url = "ws://localhost:3000/";
 
         websocket = new WebSocket(server_url);
 
@@ -17,7 +22,7 @@
         };
 
         websocket.onmessage = function(evt) {
-            console.log("Jeeves said: ", evt.data);
+            console.log("Jeeves said: ", addChat(evt.data));
         };
 
         websocket.onerror = function(evt) {
@@ -26,4 +31,12 @@
         };
     </script>
 </head>
+
+<body>
+<div class="header">
+    <h2>Jeeves window</h2></div>
+<div id="chat_screen" class="clear"></div>
+<script src="handler.js"></script>
+</body>
+
 </html>

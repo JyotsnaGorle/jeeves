@@ -1,0 +1,108 @@
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: #424242;
+        }
+        .header {
+            background: #F7BE81;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+        }
+
+        .header h2 {
+            margin: 0 0 0 10px;
+            font-family: 'Raleway', 'Sans';
+            padding: 10px;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        #chat_screen {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        #chat_screen > div {
+            margin-bottom: 20px;
+        }
+
+        .clear:after {
+            content: " ";
+            display: block;
+            clear: both;
+            float: none;
+        }
+
+        .chat {
+            /*background: #CEE3F6;*/
+            padding: 10px 10px 10px 10px;
+            position: relative;
+            border-radius: 5px;
+            margin: 50px 0 0 0;
+        }
+
+        .user {
+            float: left;
+            background: #CEE3F6;
+            margin-right: 10px;
+        }
+
+        .user:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 104px;
+            bottom: 27px;
+            border: 10px solid;
+            border-color: #CEE3F6 transparent transparent #CEE3F6;
+        }
+
+        .jeeves {
+            float: right;
+            background: antiquewhite;
+            margin-right: 10px;
+        }
+
+        .jeeves:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            bottom: 27px;
+            border: 10px solid;
+            right: 112px;
+            border-color: antiquewhite antiquewhite transparent transparent;
+        }
+
+        .user,
+        .jeeves {
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .icon-container img {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+            margin-top: 29px;
+        }
+
+        .jeeves .icon-container img {
+            margin-left: 10px;
+            margin-right: 0px;
+        }
