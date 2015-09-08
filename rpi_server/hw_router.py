@@ -34,5 +34,5 @@ class HWRouter(WebSocketServerProtocol):
 factory = WebSocketServerFactory("ws://localhost:5000", debug=False)
 factory.protocol = HWRouter
 
-reactor.listenTCP(9000, factory)
+reactor.listenTCP(5000, factory)
 reactor.run()
