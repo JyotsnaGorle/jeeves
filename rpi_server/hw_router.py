@@ -23,6 +23,7 @@ class HWRouter(WebSocketServerProtocol):
         message = payload.decode('utf8').split(":")
         action, device = message[0], message[1]
 
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(hw_pin_layout[message[1]], GPIO.OUT)
         GPIO.output(hw_pin_layout[message[1]], switch_modes[action])
