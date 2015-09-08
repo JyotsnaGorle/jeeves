@@ -9,9 +9,12 @@ import signal
 import sys
 import os
 
-def signal_handler(signal, frame):
+def kill_chat_ui_server():
     with open(".CHAT_SERVER_PID") as pid:
         subprocess.call(['kill', pid.readlines()[0].strip()])
+
+def signal_handler(signal, frame):
+    kill_chat_ui_server()
 
     os.remove(".CHAT_SERVER_PID")
     exit(0)
@@ -23,6 +26,10 @@ parser.add_argument("--input", help="specify the input source mic/stdin, default
 parser.add_argument("--host", help="specify julius' host, default is localhost")
 parser.add_argument("--port", help="specify julius' port, default is 10500", type=int)
 args = parser.parse_args()
+
+
+if os.path.exists(".CHAT_SERVER_PID"):
+    kill_chat_ui_server()
 
 process = subprocess.Popen([sys.executable, "chat_ui/chat_ui_server.py"])
 
