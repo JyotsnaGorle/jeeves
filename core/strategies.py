@@ -1,3 +1,4 @@
+from core.strategy_impl.charge_device import ChargeDevice
 from core.strategy_impl.control_ac import ControlAC
 from core.strategy_impl.control_fan import ControlFan
 from core.strategy_impl.make_coffee import MakeCoffee
