@@ -1,112 +1,113 @@
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            outline: 0;
-            font-size: 100%;
-            vertical-align: baseline;
-            background: #424242;
-        }
-        .header {
-            background: #F7BE81;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 2;
-        }
+html,
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: #424242;
+}
 
-        .header h2 {
-            margin: 0 0 0 10px;
-            font-family: 'Raleway', 'Sans';
-            padding: 10px;
-        }
+.header {
+    background: #F7BE81;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
 
-        .left {
-            float: left;
-        }
+.header h2 {
+    margin: 0 0 0 10px;
+    font-family: 'Raleway', 'Sans';
+    padding: 10px;
+}
 
-        .right {
-            float: right;
-        }
+.left {
+    float: left;
+}
 
-        #chat_screen {
-            font-family: 'Noto Sans', sans-serif;
-            font-size: 14px;
-            margin-top: 50px;
-        }
+.right {
+    float: right;
+}
 
-        #chat_screen > div {
-            margin-bottom: 20px;
-        }
+#chat_screen {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 14px;
+    margin-top: 50px;
+}
 
-        .clear:after {
-            content: " ";
-            display: block;
-            clear: both;
-            float: none;
-        }
+#chat_screen > div {
+    margin-bottom: 20px;
+}
 
-        .chat {
-            /*background: #CEE3F6;*/
-            padding: 10px 10px 10px 10px;
-            position: relative;
-            border-radius: 5px;
-            margin: 0;
-        }
+.clear:after {
+    content: " ";
+    display: block;
+    clear: both;
+    float: none;
+}
 
-        .user {
-            float: left;
-            background: #CEE3F6;
-            margin-right: 10px;
+.chat {
+    /*background: #CEE3F6;*/
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    border-radius: 5px;
+    margin: 0;
+}
 
-        }
+.user {
+    float: left;
+    background: #CEE3F6;
+    margin-right: 10px;
 
-        .user:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            left: 104px;
-            border: 10px solid;
-            border-color: #CEE3F6 transparent transparent #CEE3F6;
-        }
+}
 
-        .jeeves {
-            float: right;
-            background: antiquewhite;
-            margin-right: 10px;
-        }
+.user:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 104px;
+    border: 10px solid;
+    border-color: #CEE3F6 transparent transparent #CEE3F6;
+}
 
-        .jeeves:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-            border: 10px solid;
-            right: 112px;
-            border-color: antiquewhite antiquewhite transparent transparent;
-        }
+.jeeves {
+    float: right;
+    background: antiquewhite;
+    margin-right: 10px;
+}
 
-        .user,
-        .jeeves {
-            padding: 10px;
-            border-radius: 15px;
-            max-width: 60%;
-        }
+.jeeves:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 10px solid;
+    right: 112px;
+    border-color: antiquewhite antiquewhite transparent transparent;
+}
 
-        .icon-container img {
-            width: 70px;
-            height: 70px;
-            margin-right: 10px;
-            margin-top: 29px;
-        }
+.user,
+.jeeves {
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 60%;
+}
 
-        .jeeves .icon-container img {
-            margin-left: 10px;
-            margin-right: 0px;
-        }
+.icon-container img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+    margin-top: 29px;
+}
 
-        p{
-            padding:0 10px 0 10px;
-        }
+.jeeves .icon-container img {
+    margin-left: 10px;
+    margin-right: 0px;
+}
+
+p {
+    padding: 0 10px 0 10px;
+}
