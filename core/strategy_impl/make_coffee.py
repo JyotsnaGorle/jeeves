@@ -13,7 +13,7 @@ class MakeCoffee(BaseStrategy):
         return "I am designed to make coffee and coffee only"
 
     def perform(self):
-        connect_to_hw_server('on:coffee')
+        connect_to_hw_server('%s:coffee' % self.mode)
         return
 
     def react(self):

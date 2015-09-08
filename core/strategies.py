@@ -30,12 +30,12 @@ strategies = {
     },
     "on": {
         "fan": [ControlFan('on')],
-        # "charger": [ChargeDevice('on')],
+        "charger": [ChargeDevice('on')],
         "coffee": [MakeCoffee('on')]
     },
     "off":{
         "fan": [ControlFan('off')],
-        # "charger": [ChargeDevice('off')],
+        "charger": [ChargeDevice('off')],
         "coffee": [MakeCoffee('off')]
     }
 }
