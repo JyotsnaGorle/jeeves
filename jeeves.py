@@ -40,6 +40,6 @@ if args.input and args.input == "mic":
     connect_to_julius(args.host or "localhost", args.port or 10500)
 else:
     while True:
-        sentence = user_input("Type something: ")
+        sentence = raw_input("Type something: ")
         segregator = Segregator(sentence)
         segregator.segregate_and_react()

@@ -1,3 +1,4 @@
+from chat_ui import communicator
 from core.strategies import strategies
 from grammifier.grammifier import Grammifier
 from strategist.strategist import Strategist
@@ -15,6 +16,7 @@ times = {
 
 class Segregator:
     def __init__(self, sentence):
+        communicator.send_to_ui("user", sentence)
         self.words = nltk.word_tokenize(sentence)
 
     def check_if_greeting(self):

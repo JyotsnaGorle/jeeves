@@ -95,7 +95,7 @@ def mem_walker(brains_found):
 
 def check():
     say("Think of an animal and when you're ready hit the enter key.")
-    user_input()
+    raw_input()
 
     if not os.path.exists("brains"):
         say("I guess we are playing this game for the first time, so pardon my ignorance.")

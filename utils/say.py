@@ -10,4 +10,4 @@ def say(what):
     }[platform.system()]
 
     call([command, what])
-    communicator.send_to_ui('{"person": "%s", "msg": "%s"}' % ("jeeves", what))
+    communicator.send_to_ui("jeeves", what)

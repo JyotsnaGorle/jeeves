@@ -6,3 +6,4 @@
 *.dfa
 *.term
 brains
+.CHAT_SERVER_PID
