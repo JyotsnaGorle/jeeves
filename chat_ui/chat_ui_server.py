@@ -47,6 +47,4 @@ listenWS(factory)
 web_root = File("chat_ui")
 web = Site(web_root)
 reactor.listenTCP(ports.ports["chat_ui_static_port"], web)
-
-print("Chat UI Server is up at port %d" % ports.ports["chat_ui_static_port"])
 reactor.run()
