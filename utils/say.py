@@ -1,4 +1,5 @@
 from subprocess import call
+from chat_ui import communicator
 
 import platform
 
@@ -9,3 +10,4 @@ def say(what):
     }[platform.system()]
 
     call([command, what])
+    communicator.send_to_ui("{'person': '%s', 'msg': '%s'}" % ("jeeves", what))

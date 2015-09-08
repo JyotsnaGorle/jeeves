@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Jeeves Chat Window</title>
+    <script>
+        server_url = "ws://localhost:9000/";
+
+        websocket = new WebSocket(server_url);
+
+        websocket.onopen = function(evt) {
+            console.log("Connected");
+        };
+
+        websocket.onclose = function(evt) {
+            console.log("Disconnected");
+        };
+
+        websocket.onmessage = function(evt) {
+            console.log("Jeeves said: ", evt.data);
+        };
+
+        websocket.onerror = function(evt) {
+            console.log("Shit happened");
+            websocket.close();
+        };
+    </script>
+</head>
+</html>
