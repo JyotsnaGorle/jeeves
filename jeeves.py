@@ -32,12 +32,15 @@ if not os.path.exists(".CHAT_SERVER_PID"):
     with open(".CHAT_SERVER_PID", "w") as pid:
         pid.write(str(process.pid))
 
+src = "stdin"
 if args.input and args.input == "mic":
-    # connect_to_julius(args.host or "localhost", args.port or 10500)
-    while True:
-        recognize()
-else:
-    while True:
+    src = "mic"
+
+while True:
+    if src == "stdin":
         sentence = raw_input("Type something: ")
-        segregator = Segregator(sentence)
-        segregator.segregate_and_react()
+    else:
+        sentence = recognize()
+
+    segregator = Segregator(sentence)
+    segregator.segregate_and_react()

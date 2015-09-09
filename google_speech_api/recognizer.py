@@ -1,4 +1,3 @@
-from segregator.segregator import Segregator
 from utils.say import say
 
 import speech_recognition as sr
@@ -10,9 +9,7 @@ def recognize():
         audio = r.listen(source)
 
     try:
-        sentence = r.recognize_google(audio)
-        segregator = Segregator(sentence)
-        segregator.segregate_and_react()
+        return r.recognize_google(audio)
     except sr.UnknownValueError:
         say("Sorry, I could not understand that.")
     except sr.RequestError:
