@@ -1,6 +1,7 @@
 from __future__ import print_function
 from segregator.segregator import Segregator
-from julius_connector.julius_connector import connect_to_julius
+from google_speech_api.recognizer import recognize
+# from julius_connector.julius_connector import connect_to_julius
 
 import argparse
 import subprocess
@@ -32,7 +33,9 @@ if not os.path.exists(".CHAT_SERVER_PID"):
         pid.write(str(process.pid))
 
 if args.input and args.input == "mic":
-    connect_to_julius(args.host or "localhost", args.port or 10500)
+    # connect_to_julius(args.host or "localhost", args.port or 10500)
+    while True:
+        recognize()
 else:
     while True:
         sentence = raw_input("Type something: ")
