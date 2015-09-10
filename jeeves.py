@@ -8,6 +8,7 @@ import subprocess
 import signal
 import sys
 import os
+from utils.user_input import user_input
 
 
 def signal_handler(signal, frame):
@@ -38,7 +39,7 @@ while True:
     if src == "stdin":
         sentence = raw_input("Type something: ")
     else:
-        sentence = recognize()
+        sentence = user_input("Say something: ")
 
     segregator = Segregator(sentence)
     segregator.segregate_and_react()
