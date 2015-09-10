@@ -6,19 +6,10 @@
     <script>
     var recognition = new webkitSpeechRecognition();
     var server_url = "ws://localhost:3002/";
-    var server_connected = false;
-
-    websocket = new WebSocket(server_url);
-
-    websocket.onopen = function(evt) {
-        server_connected = true;
-    };
 
     recognition.continuous = true;
     recognition.interimResults = true;
     recognition.onresult = function(event) {
-        if (!server_connected) return;
-
         var interim_transcript = '', final_transcript = '';
 
         for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -28,7 +19,10 @@
                 interim_transcript += event.results[i][0].transcript;
         }
 
-        websocket.send(final_transcript.trim());
+        var websocket = new WebSocket(server_url);
+        websocket.onopen = function(evt) {
+            websocket.send(final_transcript.trim());
+        };
     }
 
     recognition.start();

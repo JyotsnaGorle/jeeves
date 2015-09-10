@@ -44,7 +44,7 @@ factory.protocol = BroadcastServerProtocol
 factory.setProtocolOptions(allowHixie76=True)
 listenWS(factory)
 
-web_root = File("chat_ui")
+web_root = File("web")
 web = Site(web_root)
 reactor.listenTCP(ports.ports["chat_ui_static_port"], web)
 reactor.run()
