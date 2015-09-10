@@ -12,7 +12,7 @@ class WebkitVoiceRecognizer(WebSocketServerProtocol):
         self.is_closed = False
 
     def onMessage(self, payload, is_binary):
-        if len(payload.decode('utf8')) and not self.is_speaking:
+        if not self.is_speaking:
             self.is_speaking = True
             segregator = Segregator(payload.decode('utf8'))
             segregator.segregate_and_react()

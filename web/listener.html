@@ -19,6 +19,8 @@
                 interim_transcript += event.results[i][0].transcript;
         }
 
+        if (final_transcript.trim().length == 0) return;
+
         var websocket = new WebSocket(server_url);
         websocket.onopen = function(evt) {
             websocket.send(final_transcript.trim());
