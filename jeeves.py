@@ -1,5 +1,6 @@
 from __future__ import print_function
 from segregator.segregator import Segregator
+from utils.say import say
 from utils.user_input import user_input
 # from julius_connector.julius_connector import connect_to_julius
 
@@ -34,6 +35,7 @@ if not os.path.exists(".CHAT_SERVER_PID"):
 
 src = "mic" if (args.input and args.input == "mic") else "stdin"
 
+say("Hello. I'm at your service.")
 while True:
     if src == "stdin":
         sentence = raw_input("Type something: ")

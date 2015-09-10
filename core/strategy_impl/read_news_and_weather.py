@@ -23,29 +23,18 @@ class ReadNewsAndWeather(BaseStrategy):
         say("Fetching today's news and weather for you...")
 
     def read_news(self):
-        indexed_source = []
-
         sources = data_sources['news_urls']
 
         say("I can read news from...")
         for source in sources.keys():
             say(source)
-            indexed_source.append(sources[source])
+        say("please tell me where would you like to hear it from?")
+        feed = feedparser.parse(sources[user_input()])
 
-        say("And, very soon i will be able to hear you. For now please type the choice from 1 to %d" % len(sources))
-        choice = int(user_input("choice[1-%d]: " % len(sources)))
-        say("And, how many headlines would you like to hear?")
-        count = int(user_input("how many: "))
-
-        feed = feedparser.parse(indexed_source[choice - 1])
-
-        say("So, the top stories are...")
-        for entry in feed.entries:
+        say("So, the top 3 stories are...")
+        for entry in feed.entries[:count]:
             news_to_read = entry["description"]
             say(re.sub('<[^<]+?>', '', news_to_read.split('.')[0]))
-            count -= 1
-            if count == 0:
-                break
 
     def tell_weather(self):
         pass

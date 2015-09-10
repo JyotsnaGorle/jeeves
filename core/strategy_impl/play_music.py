@@ -45,35 +45,35 @@ class PlayMusic(BaseStrategy):
     def get_top_tracks(self):
         tracks = self.sp.artist_top_tracks(self.artist["uri"])['tracks']
         if len(tracks) > 0:
-            say("Here's what I think are their best works.")
-            count = 0
+            say("Here's what I think are the top 3 songs of %s." % self.artist["name"])
 
             playlist = {}
 
-            for track in tracks:
-                print("[%d] Song: %s Album: %s" % (count + 1, track['name'], track['album']['name']))
+            for track in tracks[:3]:
+                print("Song: %s Album: %s" % (track['name'], track['album']['name']))
                 say("%s from the album %s" % (track['name'], track['album']['name']))
-                count += 1
 
-                playlist[str(count)] = (self.artist['name'], track['name'], track['album']['name'], track['uri'])
+                playlist[track['name'].lower()] = track['uri']
 
-            say("Please type the index of the song you would like to hear")
-            choice = user_input("reply: ")
+            say("Tell me the name of the song you would like to hear")
+            choice = user_input()
 
-            say("Playing %s from the album %s." % (playlist[choice][1], playlist[choice][2]))
-
-            subprocess.call([
-                'osascript',
-                '-e',
-                'tell app "Spotify" to play track "%s"' % playlist[choice][3]
-            ])
+            for song in playlist.keys():
+                if choice in song:
+                    say("Playing %s" % choice)
+                    subprocess.call([
+                        'osascript',
+                        '-e',
+                        'tell app "Spotify" to play track "%s"' % playlist[song]
+                    ])
+                    break
         else:
             say("Sorry, Although I know %s but I can't find any songs. Weird" % (self.artist['name']))
 
     def perform(self):
         self.start_spotify()
-        say("Please type the artist you want to hear: ")
-        name = user_input("reply: ")
+        say("Please tell me the artist or band you want to hear: ")
+        name = user_input()
 
         if not self.find_artist(name):
             say("That's weird. All this knowledge and still I couldn't find anything. I'll try to learn more.")
