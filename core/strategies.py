@@ -34,9 +34,13 @@ strategies = {
         "charger": [ChargeDevice('on')],
         "coffee": [MakeCoffee('on')]
     },
-    "off":{
+    "off": {
         "fan": [ControlFan('off')],
         "charger": [ChargeDevice('off')],
         "coffee": [MakeCoffee('off')]
+    },
+    "play": {
+        "game": [PlayAnimalGame()],
+        "music": [PlayMusic()]
     }
 }

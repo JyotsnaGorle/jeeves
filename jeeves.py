@@ -32,9 +32,7 @@ if not os.path.exists(".CHAT_SERVER_PID"):
     with open(".CHAT_SERVER_PID", "w") as pid:
         pid.write(str(process.pid))
 
-src = "stdin"
-if args.input and args.input == "mic":
-    src = "mic"
+src = "mic" if (args.input and args.input == "mic") else "stdin"
 
 while True:
     if src == "stdin":

@@ -2,7 +2,6 @@ from __future__ import print_function
 from .base_strategy import BaseStrategy
 from utils.say import say
 from utils.user_input import user_input
-
 import os
 
 try:
@@ -94,8 +93,8 @@ def mem_walker(brains_found):
 
 
 def check():
-    say("Think of an animal and when you're ready hit the enter key.")
-    raw_input()
+    say("Think of an animal and when you're ready say ok.")
+    user_input('reply:')
 
     if not os.path.exists("brains"):
         say("I guess we are playing this game for the first time, so pardon my ignorance.")

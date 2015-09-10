@@ -16,15 +16,17 @@ class Strategist:
                 plans = {}
 
                 for strategy in strategies:
-                    print("[%d] %s" % (count + 1, strategy.describe()))
                     if strategy.describe():
                         say(strategy.describe())
-                    count += 1
 
                     plans[str(count)] = strategy
 
-                index = user_input("reply: ")
-                strategy = plans[index]
+                reply = user_input("reply:")
+                if not reply:
+                    return
+
+                action = reply.split(' ')
+                strategy = self.strategies[action[0]][action[1]][0]
             else:
                 strategy = strategies[0]
 
