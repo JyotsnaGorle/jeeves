@@ -1,9 +1,7 @@
 from __future__ import print_function
-from twisted.internet import reactor
 from segregator.segregator import Segregator
-from webkit_speech_api.recognizer import recognize
+from utils.user_input import user_input
 # from julius_connector.julius_connector import connect_to_julius
-# from google_speech_api.recognizer import recognize
 
 import argparse
 import subprocess
@@ -13,16 +11,11 @@ import os
 
 
 def signal_handler(signal, frame):
-    if os.path.exists(".CHAT_SERVER_PID"):
-        with open(".CHAT_SERVER_PID") as pid:
-            subprocess.call(['kill', pid.readlines()[0].strip()])
-            os.remove(".CHAT_SERVER_PID")
+    with open(".CHAT_SERVER_PID") as pid:
+        subprocess.call(['kill', pid.readlines()[0].strip()])
 
-    reactor.stop()
-    try:
-        exit(0)
-    except SystemExit:
-        print("\n<<< Jeeves Terminated >>>")
+    os.remove(".CHAT_SERVER_PID")
+    exit(0)
 
 
 signal.signal(signal.SIGINT, signal_handler)
@@ -39,14 +32,13 @@ if not os.path.exists(".CHAT_SERVER_PID"):
     with open(".CHAT_SERVER_PID", "w") as pid:
         pid.write(str(process.pid))
 
-src = "stdin"
-if args.input and args.input == "mic":
-    src = "mic"
+src = "mic" if (args.input and args.input == "mic") else "stdin"
 
-if src == "stdin":
-    while True:
+while True:
+    if src == "stdin":
         sentence = raw_input("Type something: ")
-        segregator = Segregator(sentence)
-        segregator.segregate_and_react()
-else:
-    recognize()
+    else:
+        sentence = user_input("Say something: ")
+
+    segregator = Segregator(sentence)
+    segregator.segregate_and_react()
