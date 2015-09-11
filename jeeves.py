@@ -32,6 +32,11 @@ if not os.path.exists(".CHAT_SERVER_PID"):
 
     with open(".CHAT_SERVER_PID", "w") as pid:
         pid.write(str(process.pid))
+else:
+    with open(".CHAT_SERVER_PID") as pid:
+        subprocess.call(['kill', pid.readlines()[0].strip()])
+
+    os.remove(".CHAT_SERVER_PID")
 
 src = "mic" if (args.input and args.input == "mic") else "stdin"
 
