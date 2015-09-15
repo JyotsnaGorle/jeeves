@@ -11,6 +11,7 @@
 - pip (https://pip.pypa.io/en/latest/installing.html).
 - RPi.GPIO (>= 0.5.11) python module on the RaspberryPi for GPIO h/w interfacing.
 - C/C++ build tool chains like gcc/clang for building native python modules.
+- espeak for Linux variants and say TTS engines for mac
 
 ## Running the Almighty
 
