@@ -19,7 +19,18 @@ times = {
 class Segregator:
     def __init__(self, sentence):
         communicator.send_to_ui("user", sentence)
+        sentence = self.command_exists(sentence)
         self.words = nltk.word_tokenize(sentence)
+        print self.words
+
+    def command_exists(self, sentence):
+        command = "ok jeeves"
+        if command in sentence:
+            sentence = sentence.replace(command, "")
+        elif 1 == 1:
+            say("please include the command.")
+            sentence = ""
+        return sentence
 
     def check_if_greeting(self):
         greetings = ['morning', 'afternoon', 'evening', 'night']

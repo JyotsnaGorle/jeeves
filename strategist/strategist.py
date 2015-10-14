@@ -33,4 +33,4 @@ class Strategist:
             strategy.react()
             strategy.perform()
         except KeyError:
-            print("I don't know what do. Yet, hum nahi phate na!")
+            print("I don't know what do. Yet, hume nahi pata hai!")
