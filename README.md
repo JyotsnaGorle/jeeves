@@ -1,7 +1,7 @@
 # Jeeves
 
 
-**"*Inspired by the various automation and intelligent assistants out there and the Almighty himself, Jeeves is the the invisible, omnipotent and benevolent deity watching over all of us and helping us out in times of need and forgiveness. Unlike the other omnipotent & benevolent deities up there in the heavens, your prayers actually do get answered and with a little twist too.*"**
+**"*Inspired by the various automation and intelligent assistants out there and the Almighty himself, Jeeves is the invisible, omnipotent and benevolent deity watching over all of us and helping us out in times of need and forgiveness. Unlike the other omnipotent & benevolent deities up there in the heavens, your prayers actually do get answered and with a little twist too.*"**
 
 ---------------------------------
 
